@@ -1,6 +1,6 @@
 module docker_module
 
-go 1.19
+go 1.18
 
 require github.com/docker/docker v20.10.18+incompatible
 
