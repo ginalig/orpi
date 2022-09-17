@@ -1,22 +1,17 @@
 package main
 
 import (
+	"docker_module/internal/service"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
 	router := gin.Default()
-
-	router.GET(":message", get)
+	s := service.Service{}
+	router.GET(":message", s.Get)
 
 	err := router.Run("localhost:3080")
 	if err != nil {
 		return
 	}
-}
-
-func get(c *gin.Context) {
-	message := c.Param("message")
-	c.String(http.StatusOK, message)
 }
